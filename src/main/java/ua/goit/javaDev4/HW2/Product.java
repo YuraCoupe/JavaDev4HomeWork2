@@ -1,5 +1,7 @@
 package ua.goit.javaDev4.HW2;
 
+import java.util.Objects;
+
 public class Product {
     private Character name;
     private float price;
@@ -16,6 +18,19 @@ public class Product {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Float.compare(product.price, price) == 0 && actionQuantity == product.actionQuantity && Float.compare(product.actionPrice, actionPrice) == 0 && name.equals(product.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, actionQuantity, actionPrice);
+    }
+
     public Product(Character name, float price, int actionQuantity, float actionPrice) {
         this.name = name;
         this.price = price;
@@ -27,31 +42,15 @@ public class Product {
         return name;
     }
 
-    public void setName(Character name) {
-        this.name = name;
-    }
-
     public float getPrice() {
         return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
     }
 
     public int getActionQuantity() {
         return actionQuantity;
     }
 
-    public void setActionQuantity(int actionQuantity) {
-        this.actionQuantity = actionQuantity;
-    }
-
     public float getActionPrice() {
         return actionPrice;
-    }
-
-    public void setActionPrice(float actionPrice) {
-        this.actionPrice = actionPrice;
     }
 }

@@ -11,19 +11,15 @@ public class StoreService {
 
     public  HashMap<Character, Product> createProductsHashMap() {
         HashMap<Character, Product> products = new HashMap<>();
-        Product A = new Product('A', 1.25f, 3, 3.00f);
-        Product B = new Product('B', 4.25f, 0, 0.00f);
-        Product C = new Product('C', 1.00f, 6, 5.00f);
-        Product D = new Product('D', 0.75f, 0, 0.00f);
-        products.put(A.getName(), A);
-        products.put(B.getName(), B);
-        products.put(C.getName(), C);
-        products.put(D.getName(), D);
+        Product a = new Product('A', 1.25f, 3, 3.00f);
+        Product b = new Product('B', 4.25f, 0, 0.00f);
+        Product c = new Product('C', 1.00f, 6, 5.00f);
+        Product d = new Product('D', 0.75f, 0, 0.00f);
+        products.put(a.getName(), a);
+        products.put(b.getName(), b);
+        products.put(c.getName(), c);
+        products.put(d.getName(), d);
         return products;
-    }
-
-    public Product getProductByName(Store store, Character name) {
-        return store.getProducts().get(name);
     }
 
     public float calculateTotalCost(Store store, String checkout) {
