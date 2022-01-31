@@ -26,6 +26,7 @@ public class StoreService {
         float totalCost = 0;
         List<Character> goodsInChar = checkout.chars().mapToObj(e -> (char) e).collect(Collectors.toList());
         Map<Character, Integer> countGoods = goodsInChar.stream().collect(HashMap::new, (m, c) -> {
+            //please NEVER use if-else without curly braces
             if (m.containsKey(c))
                 m.put(c, m.get(c) + 1);
             else
@@ -35,6 +36,8 @@ public class StoreService {
             if (countGoods.get(entry.getKey()) != null) {
 
                 if ((Integer) countGoods.get(entry.getKey()).compareTo(entry.getValue().getActionQuantity()) >= 0 && entry.getValue().getActionQuantity() != 0) {
+                    // extremely hard review such math expression! Use more () to separate it or even better
+                    // decompose it in separate methods
                     totalCost += (Integer) countGoods.get(entry.getKey()) / entry.getValue().getActionQuantity()
                             * entry.getValue().getActionPrice()
                             + (Integer) countGoods.get(entry.getKey()) % entry.getValue().getActionQuantity()

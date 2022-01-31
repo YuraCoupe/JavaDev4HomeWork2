@@ -2,6 +2,7 @@ package ua.goit.javaDev4.HW2;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+//please always delete unused imports
 import org.junit.jupiter.api.TestTemplate;
 import org.mockito.Mockito;
 
@@ -28,6 +29,10 @@ public class StoreServiceTest {
         StoreService storeService = new StoreService();
         HashMap<Character, Product> productsActual = storeService.createProductsHashMap();
 
+        //Minor: we can import static method
+        // import static org.junit.jupiter.api.Assertions.assertEquals;
+        // and use than just
+        // assertEquals(productsExpected, productsActual);
         Assertions.assertEquals(productsExpected, productsActual);
     }
 

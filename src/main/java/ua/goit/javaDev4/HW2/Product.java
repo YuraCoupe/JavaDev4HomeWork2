@@ -1,7 +1,12 @@
 package ua.goit.javaDev4.HW2;
 
 import java.util.Objects;
+/* following convention a class should have structure like
 
+variables
+constructors
+methods (equals hashcode toString in the end
+ */
 public class Product {
     private Character name;
     private float price;
